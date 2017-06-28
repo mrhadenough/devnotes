@@ -1,0 +1,18 @@
+
+{
+    "folders":
+    [
+        {
+            "folder_exclude_patterns":
+            [
+                ".venv",
+                "dist",
+                "node_modules",
+                "__pycache__",
+                "static/js/theme",
+                "static/css/fonts"
+            ],
+            "path": "/Users/user/Documents/my_project/project"
+        }
+    ]
+}

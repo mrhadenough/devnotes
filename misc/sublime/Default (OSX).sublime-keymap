@@ -1,0 +1,19 @@
+[
+    { "keys": ["option+up"], "command": "expand_region" },
+    { "keys": ["option+down"], "command": "expand_region", "args": {"undo": true}, "context": [{ "key": "expand_region_soft_undo" }]},
+    // { "keys": ["option+d"], "command": "goto_definition" },
+    { "keys": ["option+d"], "command": "sublime_jedi_goto" },
+    { "keys": ["ctrl+option+up"], "command": "select_lines", "args": {"forward": false} },
+    { "keys": ["ctrl+option+down"], "command": "select_lines", "args": {"forward": true} },
+    { "keys": ["shift+backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+    { "keys": ["shift+delete"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+    { "keys": ["command+shift+r"], "command": "goto_symbol_in_project" },
+    { "keys": ["option+i"], "command": "reindent"},
+    { "keys": ["option+command+down"], "command": "goto_definition"},
+
+    { "keys": ["option+b"], "command": "toggle_bookmark" },
+    { "keys": ["option+]"], "command": "next_bookmark" },
+    { "keys": ["option+["], "command": "prev_bookmark" },
+    { "keys": ["option+command+p"], "command": "clear_bookmarks" },
+    { "keys": ["option+p"], "command": "tab_filter"}
+]
