@@ -99,3 +99,20 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+.npm
+.eslintcache
+
+
+.DS_Store
+/.idea
+*.sqlite3
+settings/dev.py
+staticfiles/media/
+mediafiles/
+Makefile.settings

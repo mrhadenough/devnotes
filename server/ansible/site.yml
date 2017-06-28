@@ -1,0 +1,7 @@
+- hosts: all
+  remote_user: root
+  become_user: yes
+  roles:
+    - general
+    - webapp
+    - postgresql
