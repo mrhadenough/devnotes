@@ -112,3 +112,7 @@ scp root@188.166.2.13:/data/sonar_reports/495.db ~/Downloads/495.db
 ssh -i key.pem -N -L 1111:127.0.0.1:5432 remote_user@remote.server.com
 psql -h 127.0.0.1 -p 1111 -U your-db-username database-name
 ```
+
+### Iptables
+- https://www.digitalocean.com/community/tutorials/how-to-set-up-a-basic-iptables-firewall-on-centos-6 iptables setup
+- https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands iptables

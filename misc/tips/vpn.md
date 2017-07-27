@@ -28,8 +28,12 @@ push "route 192.168.0.0 255.255.0.0"
 
 ### Install setup OpenVPN server client
 
+prepare ubuntu
+
 https://help.ubuntu.com/lts/serverguide/openvpn.html
 
 setup OpenVPN to change you IP
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04
+
+Base config of cahnging IP is `push "redirect-gateway def1 bypass-dhcp"`
