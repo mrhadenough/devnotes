@@ -132,3 +132,10 @@ def install(package):
 
 install('pymongo==3.3.0')
 ```
+
+
+### Generate base64 string from file
+
+```
+openssl base64 -in ~/path/to/file.bin | tr -d '\n' | clipcopy
+```
