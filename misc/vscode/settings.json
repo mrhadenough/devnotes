@@ -1,0 +1,33 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "workbench.colorTheme": "DarkRoomNormal",
+    "editor.fontSize": 11,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.expo": true,
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/.venv": true,
+        "**/__pycache__": true
+    },
+    "editor.minimap.enabled": false,
+    "python.linter": "flake8",
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.fontSize": 12,
+    "workbench.colorCustomizations": {
+        "sideBar.foreground": "#777",
+        "statusBar.background": "#403030"
+    },
+    "workbench.iconTheme": "vscode-great-icons",
+    "python.linting.pylintArgs": [
+        "--disable=E1101,C0103,C0111,E501"
+    ],
+    "python.linting.flake8Args": [
+        "--disable=E501"
+    ],
+    "files.insertFinalNewline": true
+}
