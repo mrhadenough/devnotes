@@ -26,6 +26,8 @@ on mac or linux
 
 `lsof -n -i4TCP:8000 | grep LISTEN`
 
+`sudo lsof -i :8081`
+
 find proceess by name and show which files it uses
 
 `lsof -c Paw | awk '{print $7}'`
