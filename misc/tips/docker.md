@@ -39,6 +39,9 @@ docker run --name postgres --restart=always -e POSTGRES_PASSWORD=postgres -p 127
 docker run --name postgres --restart=always -e POSTGRES_PASSWORD=postgres -p 127.0.0.1:5432:5432 -v ~/Documents/docker_volumes/postgres:/var/lib/postgresql/data -d kiasaki/alpine-postgres:9.5
 
 docker run --name mailhog --restart=always -p 127.0.0.1:1025:1025 -p 127.0.0.1:8025:8025 -d mailhog/mailhog
+
+# serve files
+docker run --name some-nginx -v $(pwd):/usr/share/nginx/html:ro -p 8000:80 -d nginx
 ```
 
 create database via `docker exec -i -t <container_id> su`, then`# mysq -p`, then `create database <db_name>;`

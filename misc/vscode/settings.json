@@ -2,7 +2,9 @@
 {
     "workbench.colorTheme": "DarkRoomNormal",
     "editor.fontSize": 11,
+    "editor.lineHeight": 14,
     "files.exclude": {
+        "**/.pyc": true,
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
@@ -14,6 +16,8 @@
         "**/.venv": true,
         "**/__pycache__": true
     },
+    "python.venvPath": "./.venv",
+    "python.envFile": "${workspaceRoot}/.venv",
     "editor.minimap.enabled": false,
     "python.linter": "flake8",
     "files.trimTrailingWhitespace": true,
@@ -29,5 +33,6 @@
     "python.linting.flake8Args": [
         "--disable=E501"
     ],
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "workbench.startupEditor": "newUntitledFile"
 }
