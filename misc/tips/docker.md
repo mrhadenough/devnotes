@@ -46,6 +46,9 @@ docker run --name smtp --restart=always -p 1025:25 -d namshi/smtp
 
 # serve files
 docker run --name some-nginx -v $(pwd):/usr/share/nginx/html:ro -p 8000:80 -d nginx
+
+# letsencrypt SSL certificate
+docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" certbot/certbot certonly
 ```
 
 create database via `docker exec -i -t <container_id> su`, then`# mysq -p`, then `create database <db_name>;`
