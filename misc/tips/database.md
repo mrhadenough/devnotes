@@ -42,3 +42,11 @@ copy table with certain headers and delimeter
 COPY table_name (yymmdd,spyadjprc,"PERMNO","CUSIP","TICKER","SHRCD","SICCD","PRC","VOL","OPENPRC","ASKHI","BIDLO","SHROUT","MEDIANusdvol",adjustedprice) FROM '/Users/user/Downloads/dailyadjprc1980_201603.csv' WITH NULL AS '' CSV DELIMITER ',';
 
 ```
+
+### Import CSV IN SQLite
+```
+$ sqlite3 airports.db
+.mode csv
+.separator ","
+.import airports.csv airports
+```
