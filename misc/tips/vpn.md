@@ -37,3 +37,14 @@ setup OpenVPN to change you IP
 https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04
 
 Base config of cahnging IP is `push "redirect-gateway def1 bypass-dhcp"`
+
+
+### Important configurations lines
+
+```
+push "redirect-gateway def1 bypass-dhcp"
+push "dhcp-option DNS 208.67.222.222"
+push "dhcp-option DNS 208.67.220.220"
+client-to-client
+
+```
