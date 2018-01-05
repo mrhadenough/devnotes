@@ -19,14 +19,14 @@ CREATE DATABASE username;
 ### Run postgres command inline
 
 ```
-psql -U sonar -d sonar -c "drop database test;"
+psql -U postgres -d database1 -c "drop database test;"
 
 ```
 
 ### Make Postgres dump
 
 ```
-pg_dump --create --inserts -d sonar -t issues_compact -t rules -f sonar_all.sql
+pg_dump --create --inserts --data-only -d database1 -t table1 -t table2 -f file.sql
 
 ```
 
