@@ -26,7 +26,7 @@ psql -U postgres -d database1 -c "drop database test;"
 ### Make Postgres dump
 
 ```
-pg_dump --create --inserts --data-only -d database1 -t table1 -t table2 -f file.sql
+pg_dump --create --column-inserts --data-only -d database1 -t table1 -t table2 -f file.sql
 
 ```
 
