@@ -1,10 +1,10 @@
-// Place your settings in this file to overwrite the default settings
 {
     "workbench.colorTheme": "DarkRoomNormal",
     "editor.fontSize": 11,
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "editor.lineHeight": 14,
     "files.exclude": {
-        "**/.pyc": true,
+        "**/*.pyc": true,
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
@@ -13,26 +13,26 @@
         "**/.expo": true,
         "**/node_modules": true,
         "**/dist": true,
+        "**/.idea": true,
         "**/.venv": true,
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        "**/.vscode": true,
+        "**/build": true,
+        "misc/cube/": true,
+        "staticfiles/": true,
+        "data/postgres/": true
     },
-    "python.venvPath": "./.venv",
-    "python.envFile": "${workspaceRoot}/.venv",
+    "python.pythonPath": "${workspaceRoot}/.venv/bin/python",
     "editor.minimap.enabled": false,
-    "python.linter": "flake8",
     "files.trimTrailingWhitespace": true,
     "terminal.integrated.fontSize": 12,
-    "workbench.colorCustomizations": {
-        "sideBar.foreground": "#777",
-        "statusBar.background": "#403030"
-    },
-    "workbench.iconTheme": "vscode-great-icons",
-    "python.linting.pylintArgs": [
-        "--disable=E1101,C0103,C0111,E501"
-    ],
     "python.linting.flake8Args": [
         "--disable=E501"
     ],
     "files.insertFinalNewline": true,
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 0,
+    "files.associations": {
+        "*.js": "javascriptreact"
+    },
 }
