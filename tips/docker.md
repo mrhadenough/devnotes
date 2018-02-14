@@ -1,17 +1,5 @@
 ### Docker
 
-List of images
-
-`docker images`
-
-Run instance
-
-`hello-world`
-
-List of containers
-
-`docker ps -a`
-
 Connect to running docker
 `docker exec -i -t e965636ed662 sh`
 
