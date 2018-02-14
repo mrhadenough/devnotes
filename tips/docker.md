@@ -16,7 +16,7 @@ docker run -d -p 27017:27017 --name mongodb mongo
 
 docker run --name jupyter -p 8888:8888 -d jupyter/minimal-notebook
 
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -v /Users/kostya/Documents/docker_volumes/mysql:/var/lib/mysql -restart=always -p 3306:3306 -d mysql:latest
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -v $(pwd)/mysql:/var/lib/mysql -restart=always -p 3306:3306 -d mysql:latest
 
 docker run --name redis -p 6379:6379 --restart=always -d redis
 
