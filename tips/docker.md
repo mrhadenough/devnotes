@@ -37,6 +37,9 @@ docker run --name some-nginx -v $(pwd):/usr/share/nginx/html:ro -p 8000:80 -d ng
 
 # letsencrypt SSL certificate
 docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" certbot/certbot certonly
+
+# Render PDF file from HTML (file/URL)
+docker run -v /path/to/folder/with/html/document/:/root/ mrhadenough/wkhtmltopdf:latest /root/document.html /root/document.pdf
 ```
 
 create database via `docker exec -i -t <container_id> su`, then`# mysq -p`, then `create database <db_name>;`
