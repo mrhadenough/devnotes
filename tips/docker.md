@@ -40,6 +40,9 @@ docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc
 
 # Render PDF file from HTML (file/URL)
 docker run -v /path/to/folder/with/html/document/:/root/ mrhadenough/wkhtmltopdf:latest /root/document.html /root/document.pdf
+
+# Sqlite browser
+docker run -p 127.0.0.1:2015:2015 -v /root/myapp/db/local.sqlite3:/db --name sqlite_gui -d acttaiwan/phpliteadmin
 ```
 
 create database via `docker exec -i -t <container_id> su`, then`# mysq -p`, then `create database <db_name>;`
