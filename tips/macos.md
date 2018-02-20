@@ -11,6 +11,10 @@ brew install pwgen
 pwgen -Bs 10 1
 ```
 
+### Alternative to htop and system monitor
+
+`brew install glances`
+
 ### Allow applications downloaded from anywhere in macOS Sierra
 
 `sudo spctl --master-disable`
@@ -32,3 +36,4 @@ The Menubar crashed/refuses to be clickable:
 ### Install CUDA for OSX for blender
 
 `The version ('70300') of the host compiler ('Apple clang') is not supported` install CUDA 6.5 Production Release
+
