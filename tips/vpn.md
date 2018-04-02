@@ -12,7 +12,7 @@ docker run -v $OVPN_DATA:/etc/openvpn --restart=always -d -p 1194:1194/udp --cap
 docker run -v $OVPN_DATA:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full client nopass
 docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient client > client.ovpn
 echo http://$IP_ADDRESS:8001 && python3 -m http.server 8001
-# open the link which showed up
+# open the link which showed up to download clint.ovpn
 ```
 
 [Source link](https://www.digitalocean.com/community/tutorials/how-to-run-openvpn-in-a-docker-container-on-ubuntu-14-04)
