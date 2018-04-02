@@ -5,17 +5,14 @@ On server
 ```
 OVPN_DATA="ovpn-data"
 IP_ADDRESS=$(curl -s ipinfo.io | grep -Po '\d+\.\d+\.\d+\.\d+')
-docker run --name $OVPN_DATA -v /etc/openvpn busybox
-docker run --volumes-from $OVPN_DATA --rm kylemanna/openvpn ovpn_genconfig -u udp://$IP_ADDRESS:1194
-docker run --volumes-from $OVPN_DATA --rm -it kylemanna/openvpn ovpn_initpki
-docker run --volumes-from ovpn-data -p 1194:1194/udp --cap-add=NET_ADMIN -d kylemanna/openvpn
-docker run --volumes-from $OVPN_DATA --rm kylemanna/openvpn ovpn_getclient client > client.ovpn
-```
-
-Local
-
-```
-scp root@<address_of_the_server>:/root/vpn/client.ovpn ~/Downloads/client.ovpn
+docker volume create --name $OVPN_DATA
+docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -u udp://$IP_ADDRESS
+docker run -v $OVPN_DATA:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
+docker run -v $OVPN_DATA:/etc/openvpn --restart=always -d -p 1194:1194/udp --cap-add=NET_ADMIN kylemanna/openvpn
+docker run -v $OVPN_DATA:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full client nopass
+docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient client > client.ovpn
+echo http://$IP_ADDRESS:8001 && python3 -m http.server 8001
+# open the link which showed up
 ```
 
 [Source link](https://www.digitalocean.com/community/tutorials/how-to-run-openvpn-in-a-docker-container-on-ubuntu-14-04)
