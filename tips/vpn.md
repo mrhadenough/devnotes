@@ -21,6 +21,7 @@ Source:
 
 [Digital Ocean community page](https://www.digitalocean.com/community/tutorials/how-to-run-openvpn-in-a-docker-container-on-ubuntu-14-04)
 
+## Hard way
 
 ### OpenVPN LAN subnet expose to client
 
