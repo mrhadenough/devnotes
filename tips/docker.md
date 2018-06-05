@@ -25,7 +25,7 @@ docker run -d -p 443:443 -p 9390:9390 -p 80:80 --name openvas mikesplain/openvas
 
 docker run --name postgres --restart=always -e POSTGRES_PASSWORD=postgres -p 127.0.0.1:5432:5432 -v ~/Documents/docker_volumes/postgres:/var/lib/postgresql/data -d postgres:9.5
 
-docker run --name postgres --restart=always -e POSTGRES_PASSWORD=postgres -p 127.0.0.1:5432:5432 -v ~/Documents/docker_volumes/postgres:/var/lib/postgresql/data -d kiasaki/alpine-postgres:9.5
+docker run --name postgres --restart=always -e POSTGRES_PASSWORD=postgres -p 127.0.0.1:5432:5432 -v ~/Documents/docker_volumes/postgres:/var/lib/postgresql/data -d postgres:10.4-alpine
 
 # email sundbox
 docker run --name mailhog --restart=always -p 127.0.0.1:1025:1025 -p 127.0.0.1:8025:8025 -d mailhog/mailhog
