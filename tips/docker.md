@@ -16,6 +16,7 @@ docker run -d -p 27017:27017 --name mongodb mongo
 
 docker run --name jupyter -p 8888:8888 -d jupyter/minimal-notebook
 docker run --name jupyter -p 8888:8888 -d jupyter/datascience-notebook
+# using with nginx/supervisor --> /devnotes/tree/master/tips/jupyter
 
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -v $(pwd)/mysql:/var/lib/mysql -restart=always -p 3306:3306 -d mysql:latest
 
