@@ -4,9 +4,9 @@
 
 alias gs="git status"
 # graph look
-alias gitl="git log --oneline --graph --decorate"
+alias gitl="git log --oneline --graph --decorate --full-history"
 # graph look with full history
-alias gitlf="git log --oneline --graph --decorate --full-history"
+alias gitlf="git log --oneline --graph --decorate --full-history --all"
 # git log, ignore the individual commits brought in to your history by such a merge
 alias gitlm="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=relative --first-parent"
 # pretty git log with relative dates
