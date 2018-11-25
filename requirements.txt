@@ -1,6 +1,0 @@
-Django==1.11.2
-django-filter==1.0.4
-django-webpack-loader==0.5.0
-djangorestframework==3.6.3
-Markdown==2.6.8
-psycopg2==2.7.1

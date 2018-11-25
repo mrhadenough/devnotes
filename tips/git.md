@@ -12,6 +12,38 @@
 
 `git checkout stash@{0} -- path/to/file.txt`
 
+### Check out file or folder with some version
+
+`git checkout 1f425b5 -- src/img/button/`
+
+### Rename git branch remotely
+
+```
+git branch -m old_branch new_branch         # Rename branch locally
+git push origin :old_branch                 # Delete the old branch
+git push --set-upstream origin new_branch   # Push the new branch, set local branch to track the new remote
+```
+
+### Clean untracked files
+
+```
+git clean -n
+# Clean Step - beware: this will delete files:
+git clean -f
+```
+
+### See old version of git file
+
+```
+git show HEAD~:app/accounts/models.py | grep get_avatar_photo -A 30
+```
+
+### See all commits of some branch (not merged commits)
+
+```
+git log master..branch --oneline
+```
+
 ### Add submodule
 
 `git submodule add ssh://git@example.git lib`
@@ -44,32 +76,4 @@ git submodule init
 git submodule update
 # or
 git submodule update --init --recursive
-```
-
-### Rename git branch remotely
-
-```
-git branch -m old_branch new_branch         # Rename branch locally
-git push origin :old_branch                 # Delete the old branch
-git push --set-upstream origin new_branch   # Push the new branch, set local branch to track the new remote
-```
-
-### Clean untracked files
-
-```
-git clean -n
-# Clean Step - beware: this will delete files:
-git clean -f
-```
-
-### See old version of git file
-
-```
-git show HEAD~:app/accounts/models.py | grep get_avatar_photo -A 30
-```
-
-### See all commits of some branch (not merged commits)
-
-```
-git log master..branch --oneline
 ```

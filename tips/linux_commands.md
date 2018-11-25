@@ -139,3 +139,13 @@ install('pymongo==3.3.0')
 ```
 openssl base64 -in ~/path/to/file.bin | tr -d '\n' | clipcopy
 ```
+
+### Uninstall some unstable ppa and get back to stable packages
+
+Example of rolling back from python2.7.14 to python2.7.6
+
+```
+sudo apt-get install ppa-purge
+sudo ppa-purge ppa:jonathonf/python-2.7
+for pkg in `dpkg --get-selections | egrep -v 'deinstall' | egrep python2 | awk '{print $1}'`; do  apt-get -y --force-yes install --reinstall $pkg ; done
+```

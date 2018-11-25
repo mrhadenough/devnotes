@@ -18,6 +18,8 @@
         - [Serve files](#serve-files)
         - [Letsencrypt SSL certificate](#letsencrypt-ssl-certificate)
     - [Misc](#misc)
+        - [Render PDF file from HTML (file/URL)](#render-pdf-file-from-html-fileurl)
+        - [Sqlite browser](#sqlite-browser)
 
 <!-- /TOC -->
 # Docker
@@ -105,9 +107,24 @@ docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc
 
 ## Misc
 
+### Render PDF file from HTML (file/URL)
+```
+docker run -v /path/to/folder/with/html/document/:/root/ mrhadenough/wkhtmltopdf:latest /root/document.html /root/document.pdf
+```
+
+### Sqlite browser
+```
+docker run -p 127.0.0.1:2015:2015 -v /root/myapp/db/local.sqlite3:/db --name sqlite_gui -d acttaiwan/phpliteadmin
+```
+
+
 ```
 docker run -u zap -p 8080:8080 -i owasp/zap2docker-stable zap-x.sh -daemon -port 8080
 docker run -d -p 443:443 -p 9390:9390 -p 80:80 --name openvas mikesplain/openvas:9
 docker run -p 80:80 -v /path/to/src:/src kws1/rips
 docker run --name jupyter -p 8888:8888 -v $HOME/Documents/docker_volumes/jupyter:/home/jovyan/work -d jupyter/minimal-notebook
 ```
+create database via `docker exec -i -t <container_id> su`, then`# mysq -p`, then `create database <db_name>;`
+
+
+Create vpn server via docker, image: `kylemanna/openvpn` details in: [./vpn.md](./vpn.md)
