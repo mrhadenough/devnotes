@@ -1,0 +1,45 @@
+# Export extensions
+code --list-extensions | xargs -L 1 echo code --install-extension
+
+# my list
+
+code --install-extension aaron-bond.better-comments
+code --install-extension akamud.vscode-theme-onelight
+code --install-extension anoff.theme-monokai-light
+code --install-extension arcticicestudio.nord-visual-studio-code
+code --install-extension batisteo.vscode-django
+code --install-extension blairleduc.touch-bar-display
+code --install-extension bradymholt.pgformatter
+code --install-extension bungcip.better-toml
+code --install-extension dnlytras.nord-wave
+code --install-extension DotJoshJohnson.xml
+code --install-extension emmanuelbeziat.vscode-great-icons
+code --install-extension eriklynd.json-tools
+code --install-extension gerane.Theme-DarkRoomNormal
+code --install-extension GrapeCity.gc-excelviewer
+code --install-extension hbenl.vscode-test-explorer
+code --install-extension kiteco.kite
+code --install-extension LeCrunchic.mariana-nord
+code --install-extension letrieu.expand-region
+code --install-extension littlefoxteam.vscode-python-test-adapter
+code --install-extension mechatroner.rainbow-csv
+code --install-extension mikestead.dotenv
+code --install-extension ms-python.python
+code --install-extension ms-vscode.Go
+code --install-extension naumovs.color-highlight
+code --install-extension njpwerner.autodocstring
+code --install-extension planbcoding.vscode-react-refactor
+code --install-extension qrti.funclist
+code --install-extension remdym.django-tests
+code --install-extension ryu1kn.annotator
+code --install-extension ryu1kn.partial-diff
+code --install-extension shd101wyy.markdown-preview-enhanced
+code --install-extension sldobri.nord-5-stars
+code --install-extension teabyii.ayu
+code --install-extension thomaspink.theme-github
+code --install-extension tht13.html-preview-vscode
+code --install-extension tomoki1207.vscode-input-sequence
+code --install-extension waderyan.gitblame
+code --install-extension wholroyd.HCL
+code --install-extension wholroyd.jinja
+code --install-extension wmaurer.change-case
