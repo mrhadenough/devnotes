@@ -1,6 +1,15 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
+        "key": "ctrl+`",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    }, {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
         "key": "shift+backspace",
         "command": "editor.action.deleteLines",
         "when": "editorTextFocus && !editorReadonly"
@@ -175,5 +184,20 @@
         "key": "shift+cmd+l",
         "command": "-editor.action.selectHighlights",
         "when": "editorFocus"
+    },
+    {
+        "key": "alt+r",
+        "command": "workbench.action.reloadWindow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+b",
+        "command": "workbench.action.debug.start",
+        "when": "!inDebugMode"
+    },
+    {
+        "key": "f5",
+        "command": "-workbench.action.debug.start",
+        "when": "!inDebugMode"
     }
 ]
