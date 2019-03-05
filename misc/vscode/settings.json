@@ -1,8 +1,17 @@
 {
-    "workbench.colorTheme": "DarkRoomNormal",
-    "editor.fontSize": 11,
-    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "window.zoomLevel": 0,
     "editor.lineHeight": 14,
+
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true,
+    "python.terminal.activateEnvironment": true,
+
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "code-runner.enableAppInsights": false,
+    "extensions.autoUpdate": false,
+    "extensions.ignoreRecommendations": true,
+
     "files.exclude": {
         "**/*.pyc": true,
         "**/.git": true,
@@ -20,19 +29,96 @@
         "**/build": true,
         "misc/cube/": true,
         "staticfiles/": true,
-        "data/postgres/": true
+        "data/db": true,
+        "data/postgres/": true,
+        "wheels": true,
+        "ansible/**/templates/data/": true,
+        "target/": true
     },
-    "python.pythonPath": "${workspaceRoot}/.venv/bin/python",
+    "window.title": "${activeEditorLong}${separator}${rootName}",
+    // "window.nativeTabs": true,
+    // "python.linter": "flake8",
+    // "python.venvPath": "~/.local/share/virtualenvs/",
+    // "python.linting.flake8Path": "flake8",
+    // "python.venvPath": "${workspaceRoot}/.venv",
+    // "python.pythonPath": "${workspaceRoot}/.venv/bin/python",
+    // "python.envFile": "${workspaceRoot}/.venv/bin/python",
     "editor.minimap.enabled": false,
+    "problems.decorations.enabled": false,
+    // "editor.letterSpacing": -0.05,
     "files.trimTrailingWhitespace": true,
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 11,
+    "workbench.colorCustomizations": {
+        "[Default Dark+]": {
+            "statusBar.background": "#383838",
+            "sideBar.foreground": "#888888",
+            "titleBar.activeBackground": "#252526",
+            "tab.inactiveBackground": "#252526",
+            "activityBar.background": "#252526"
+        },
+        "[Default Light+]": {
+            // "statusBar.background": "#666666",
+            // "panel.background": "#fff",
+            "sideBar.background": "#f9f9f9",
+            "activityBar.background": "#f9f9f9",
+            "activityBar.foreground": "#666"
+        },
+        "[Ayu Light]": {
+            "editorLineNumber.foreground": "#b3b3b3",
+            "editor.selectionBackground": "#99b6ffd0",
+            "editor.selectionHighlightBackground": "#c3e7f8",
+            // "statusBar.background": "#ffffff",
+        },
+        "[DarkRoomNormal]": {
+            "statusBar.background": "#383838",
+            "sideBar.foreground": "#888888",
+            "titleBar.activeBackground": "#252526",
+            "tab.inactiveBackground": "#252526",
+            "activityBar.background": "#252526"
+            // "tab.activeBackground": "#252526",
+        },
+        "[Atom One Light]": {
+            // "statusBar.background": "#666666",
+            // "panel.background": "#555555",
+            "sideBar.background": "#f9f9f9"
+        },
+        "[Ayu Mirage]": {
+            "editor.foreground": "#8b8b8b",
+        }
+    },
+    "workbench.iconTheme": "vscode-great-icons",
+    // "python.linting.pylintArgs": [
+    //     "--disable=E1101,C0103,C0111,E501"
+    // ],
+    "editor.tokenColorCustomizations": {
+        "[Ayu Mirage]": {
+            // "strings": "#58a756",
+            "strings": "#409266",
+        }
+    },
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    // "python.linting.flake8Path": "/Library/Frameworks/Python.framework/Versions/3.6/bin/flake8",
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": false,
+    "python.linting.pep8Path": "/usr/local/bin/pep8",
     "python.linting.flake8Args": [
-        "--disable=E501"
+        "--ignore=E501"
     ],
     "files.insertFinalNewline": true,
     "workbench.startupEditor": "newUntitledFile",
-    "window.zoomLevel": 0,
+    "editor.renderControlCharacters": false,
+    "workbench.statusBar.feedback.visible": false,
+    "breadcrumbs.enabled": true,
+    "autoDocstring.docstringFormat": "sphinx",
+    "workbench.colorTheme": "Ayu Mirage",
+    "editor.fontSize": 11,
+    "python.envFile": "",
+    "python.formatting.provider": "black",
+    "csv-preview.separator": "  ",
+    "kite.showWelcomeNotificationOnStartup": false,
     "files.associations": {
-        "*.js": "javascriptreact"
-    },
+        "*.lock": "toml",
+        "*.env": "dotenv",
+    }
 }
