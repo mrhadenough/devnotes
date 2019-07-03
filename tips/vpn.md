@@ -15,6 +15,18 @@ echo http://$IP_ADDRESS:8001 && python3 -m http.server 8001
 # open the link which showed up to download clint.ovpn
 ```
 
+Allow connection to docker if your iptables doesn't allow this
+
+```
+# remove all iptables configurations
+iptables -F
+# allow all incoming traffic from outside internet
+iptables -I INPUT -j ACCEPT
+# allow to forward outcome traffic to docker
+iptables-A FORWARD -i docker0 -o eth0 -j ACCEPT
+iptables-A FORWARD -i eth0 -o docker0 -j ACCEPT
+```
+
 Source:
 
 [Github source link](https://github.com/kylemanna/docker-openvpn)
