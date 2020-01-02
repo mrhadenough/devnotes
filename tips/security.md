@@ -42,3 +42,19 @@ echo | openssl s_client -connect yourdomain.tld:443 -servername yourdomain.tld 2
 openssl x509 -noout -dates -in /etc/letsencrypt/live/yourdomain.tld/cert.pem
 
 ```
+
+In **ansible** There is no option to store passphrase-protected private key
+
+For that we need to add the passphrase-protected private key in the `ssh-agent`
+
+Start the `ssh-agent` in the background.
+
+```
+# eval "$(ssh-agent -s)"
+```
+
+Add SSH private key to the ssh-agent
+
+```
+# ssh-add ~/.ssh/id_rsa
+```
