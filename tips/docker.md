@@ -11,6 +11,7 @@
         - [RethinkDB](#rethinkdb)
         - [Couchbase](#couchbase)
         - [RabbitMQ](#rabbitmq)
+        - [Kafka](#Kafka_dev)
     - [Email](#email)
         - [Email sundbox](#email-sundbox)
         - [Real email server](#real-email-server)
@@ -79,6 +80,12 @@ docker exec -it couchbase cbq -u couchbase -p 123123
 ### RabbitMQ
 ```
 docker run --name rabbitmq -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=root -p 15672:15672 -p 5672:5672 -d rabbitmq:3-management
+```
+
+### Kafka_dev
+
+```
+docker run -d --name kafka -p 127.0.0.1:2181:2181 -p 127.0.0.1:3030:3030 -p 127.0.0.1:8081-8083:8081-8083 -p 127.0.0.1:9581-9585:9581-9585 -p 127.0.0.1:9092:9092 -e ADV_HOST=127.0.0.1 lensesio/fast-data-dev:latest
 ```
 
 ## Email

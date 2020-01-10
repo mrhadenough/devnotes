@@ -1,3 +1,23 @@
+### Super easy way
+
+Works even if ISP is blocking VPN/proxy traffic. And if no ssh traffic is alowed then luck is not on your side.
+
+```
+# mac
+brew install sshuttle
+# linux
+apt install sshuttle
+
+sshuttle -r root@1.2.3.4 0.0.0.0/0 -vv
+sshuttle -r root@1.2.3.4 0.0.0.0/0
+
+```
+
+### Start socks proxy on 127.0.0.1:1080
+```
+ssh -N -D 1080 root@1.2.3.4
+```
+
 ### Easy way to setup VPN server via docker
 
 On server
