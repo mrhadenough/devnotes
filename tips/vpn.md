@@ -18,6 +18,11 @@ sshuttle -r root@1.2.3.4 0.0.0.0/0
 ssh -N -D 1080 root@1.2.3.4
 ```
 
+### Run socks5 proxy server by docker
+```
+docker run -d --name socks5 -p 1080:1080 -e PROXY_USER=<PROXY_USER> -e PROXY_PASSWORD=<PROXY_PASSWORD> serjs/go-socks5-proxy
+```
+
 ### Easy way to setup VPN server via docker
 
 On server
