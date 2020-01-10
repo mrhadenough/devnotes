@@ -23,8 +23,8 @@ iptables -F
 # allow all incoming traffic from outside internet
 iptables -I INPUT -j ACCEPT
 # allow to forward outcome traffic to docker
-iptables-A FORWARD -i docker0 -o eth0 -j ACCEPT
-iptables-A FORWARD -i eth0 -o docker0 -j ACCEPT
+iptables -A FORWARD -i docker0 -o eth0 -j ACCEPT
+iptables -A FORWARD -i eth0 -o docker0 -j ACCEPT
 ```
 
 Source:
