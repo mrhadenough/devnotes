@@ -1,17 +1,37 @@
 {
-    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Visual Studio Light",
+    "editor.fontSize": 11,
     "editor.lineHeight": 14,
-
+    // "editor.fontSize": 16,
+    // "editor.lineHeight": 21,
+    //  "editor.fontFamily": "inconsolata, Monaco, Consolas",
+    // "editor.fontFamily": "Monaco, Consolas",
+    // "editor.fontFamily": "JetBrains Mono",
+    // "editor.tabSize": 2,
     "editor.detectIndentation": true,
     "editor.insertSpaces": true,
     "python.terminal.activateEnvironment": true,
-
+    // "editor.fontFamily": "Consolas",
+    // "editor.fontFamily": "Fira Code",
+    // "editor.fontFamily": "Pragmata Pro",
+    // "editor.fontFamily": "Iosevka",
+    // "editor.fontLigatures": true,
+    // "editor.fontSize": 9,
+    // "python.jediEnabled": true,
+    // "editor.fontSize": 14,
+    // "editor.lineHeight": 17,
+    // "terminal.integrated.fontSize": 14,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 10,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "code-runner.enableAppInsights": false,
     "extensions.autoUpdate": false,
     "extensions.ignoreRecommendations": true,
-
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true
+    },
     "files.exclude": {
         "**/*.pyc": true,
         "**/.git": true,
@@ -33,29 +53,31 @@
         "data/postgres/": true,
         "wheels": true,
         "ansible/**/templates/data/": true,
-        "target/": true
+        "**/target/": true,
+        "**/*.egg-info": true,
+        "**/pip-wheel-metadata": true,
+        "**/.pytest_cache": true,
+        // "**/pkg/": true,
+        "bin/": true,
+        ".cache/": true,
+        "vendor/": true,
     },
     "window.title": "${activeEditorLong}${separator}${rootName}",
+    "python.sortImports.args": [
+        "--multi-line",
+        "3",
+    ],
     // "window.nativeTabs": true,
     // "python.linter": "flake8",
-    // "python.venvPath": "~/.local/share/virtualenvs/",
-    // "python.linting.flake8Path": "flake8",
+    "python.venvPath": "/Users/username/Library/Caches/pypoetry/virtualenvs/",
     // "python.venvPath": "${workspaceRoot}/.venv",
-    // "python.pythonPath": "${workspaceRoot}/.venv/bin/python",
-    // "python.envFile": "${workspaceRoot}/.venv/bin/python",
+    "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.7/bin/python3",
+    "python.envFile": "${workspaceRoot}/.venv/bin/python",
     "editor.minimap.enabled": false,
     "problems.decorations.enabled": false,
     // "editor.letterSpacing": -0.05,
     "files.trimTrailingWhitespace": true,
-    "terminal.integrated.fontSize": 11,
     "workbench.colorCustomizations": {
-        "[Default Dark+]": {
-            "statusBar.background": "#383838",
-            "sideBar.foreground": "#888888",
-            "titleBar.activeBackground": "#252526",
-            "tab.inactiveBackground": "#252526",
-            "activityBar.background": "#252526"
-        },
         "[Default Light+]": {
             // "statusBar.background": "#666666",
             // "panel.background": "#fff",
@@ -69,6 +91,9 @@
             "editor.selectionHighlightBackground": "#c3e7f8",
             // "statusBar.background": "#ffffff",
         },
+        "[Ayu Dark]": {
+            // "editor.background": "#1a2738"
+        },
         "[DarkRoomNormal]": {
             "statusBar.background": "#383838",
             "sideBar.foreground": "#888888",
@@ -77,48 +102,133 @@
             "activityBar.background": "#252526"
             // "tab.activeBackground": "#252526",
         },
-        "[Atom One Light]": {
-            // "statusBar.background": "#666666",
-            // "panel.background": "#555555",
-            "sideBar.background": "#f9f9f9"
-        },
         "[Ayu Mirage]": {
-            "editor.foreground": "#8b8b8b",
+            "statusBarItem.remoteBackground": "#1F2430",
+            "statusBarItem.remoteForeground": "#ccc"
+        },
+        "[Visual Studio Light]": {
+            "sideBar.background": "#fff",
+            "statusBar.background": "#fff",
+            "statusBar.foreground": "#000",
+            "statusBarItem.remoteBackground": "#fff",
+            "statusBarItem.remoteForeground": "#0078CF"
         }
+        // "editor.selectionHighlightBackground": "#bdb486",
+        // "editor.selectionBackground": "#bed0ffd0"
     },
     "workbench.iconTheme": "vscode-great-icons",
     // "python.linting.pylintArgs": [
     //     "--disable=E1101,C0103,C0111,E501"
     // ],
-    "editor.tokenColorCustomizations": {
-        "[Ayu Mirage]": {
-            // "strings": "#58a756",
-            "strings": "#409266",
-        }
-    },
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    // "python.linting.flake8Path": "/Library/Frameworks/Python.framework/Versions/3.6/bin/flake8",
+    "python.linting.flake8Path": "/Library/Frameworks/Python.framework/Versions/3.6/bin/flake8",
     "python.linting.pylintEnabled": false,
-    "python.linting.pep8Enabled": false,
-    "python.linting.pep8Path": "/usr/local/bin/pep8",
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.pycodestylePath": "/usr/local/bin/pep8",
     "python.linting.flake8Args": [
         "--ignore=E501"
     ],
     "files.insertFinalNewline": true,
     "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 0,
+    // "sqltools.telemetryUUID": "fa302e95-869f-4422-a4a6-38338b27c7a8",
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "*.lock": "toml"
+    },
+    "editor.tokenColorCustomizations": {
+        "[DarkRoomNormal]": {
+            "comments": "#545c55",
+        },
+        "[Ayu Dark]": {
+            "strings": "#46794e",
+            // "keywords": "#e27f57",
+            // "functions": "#fff",
+        },
+        "[Ayu Mirage]": {
+            "strings": "#68a171",
+        },
+        "[Visual Studio Light]": {
+            "comments": "#757575",
+            "textMateRules":[
+                {
+                    "scope": "meta.function-call.generic.python",
+                    "settings": {
+                        "foreground": "#0067b5"
+                    }
+                },
+                {
+                    "scope": "support.class.component.js.jsx",
+                    "settings": {
+                        "foreground": "#0067b5"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.js.jsx",
+                    "settings": {
+                        "foreground": "#0067b5"
+                    }
+                },
+                {
+                    "scope": "string.quoted",
+                    "settings": {
+                        "foreground": "#008f00"
+                    }
+                },
+                {
+                    "scope": "string.template.js.jsx",
+                    "settings": {
+                        "foreground": "#008f00"
+                    }
+                },
+            ]
+        }
+    },
     "editor.renderControlCharacters": false,
-    "workbench.statusBar.feedback.visible": false,
+    // "python.testing.pytestEnabled": true,
+    // "python.testing.pytestArgs": [
+    //     "--failfast --settings=webapp.test_settings --nomigrations"
+    // ],
+    // "python.testing.cwd": "./",
+    // "black.path": "/usr/local/bin/black",
+    // "python.formatting.provider": "none",
+    "editor.formatOnPaste": false,
+    // "python.formatting.provider": "autopep8",
+    // "python.formatting.provider": "black",
+    // "python.formatting.blackPath": "/usr/local/bin/black",
+    "[jinja]": {},
+    "rust.rustup": {
+        "toolchain": "stable-x86_64-apple-darwin",
+        "nightlyToolchain": "nightly-x86_64-apple-darwin"
+    },
+    "rust.mode": "rls",
     "breadcrumbs.enabled": true,
     "autoDocstring.docstringFormat": "sphinx",
-    "workbench.colorTheme": "Ayu Mirage",
-    "editor.fontSize": 11,
-    "python.envFile": "",
+    "rust.rls": {
+        "useRustfmt": true
+    },
+    "python.formatting.blackArgs": [
+        "-S",
+        "--line-length",
+        "79"
+    ],
+    "python.formatting.blackPath": "/Users/username/.pyenv/versions/3.7.5/bin/black",
     "python.formatting.provider": "black",
-    "csv-preview.separator": "  ",
-    "kite.showWelcomeNotificationOnStartup": false,
-    "files.associations": {
-        "*.lock": "toml",
-        "*.env": "dotenv",
-    }
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "go.gopath": "/Users/username/.go",
+    "workbench.activityBar.visible": false,
+    "gitlens.codeLens.enabled": false,
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "terminal.integrated.fontSize": 11,
+    "python.experiments.enabled": false,
+    "python.testing.autoTestDiscoverOnSaveEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "editor.codeLens": false,
+    "python.jediEnabled": true,
+    "python.languageServer": "Microsoft",
+    "python.workspaceSymbols.enabled": true,
 }
