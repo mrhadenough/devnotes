@@ -143,3 +143,7 @@ alias vsrm="rm -rf .vscode"
 alias dockerh="docker history --no-trunc --format '📦 {{.Size}}\n{{.CreatedBy}}\n'"
 # alias jq="jq -C | less -R"
 alias jql="jq -C | less -R"
+alias date1='date +%Y-%m-%d\ %H:%M:%S'
+# pip install Pygments
+alias fzfp='fzf --preview "pygmentize {}" --color light'
+alias theme='osascript ~/Applications/Other/bin/change_terminal_theme.scpt'
