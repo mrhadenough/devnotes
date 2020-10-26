@@ -16,6 +16,27 @@
 
 `git checkout 1f425b5 -- src/img/button/`
 
+
+### Merge branch by overriding completely using particular branch
+
+```
+git checkout branch_we_want_to_override_from_master
+git merge -s ours master
+```
+
+### Search text in file history
+
+```
+git log -S'bar' -- foo.rb
+git log -S'bar'
+```
+
+### Search file changes in history
+
+```
+git --no-pager log --oneline --stat | grep "file.py"
+```
+
 ### Rename git branch remotely
 
 ```
