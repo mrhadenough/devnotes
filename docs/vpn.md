@@ -111,3 +111,11 @@ client-to-client
 
 ```
 
+
+### Run tor proxy
+socks5 - 9050
+http - 8118
+
+```
+docker run --name torproxy -p 8118:8118 -p 9050:9050 -d dperson/torproxy
+```

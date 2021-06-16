@@ -98,3 +98,8 @@ git submodule update
 # or
 git submodule update --init --recursive
 ```
+
+Show contributors stats
+```
+git shortlog -s -n
+```

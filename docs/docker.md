@@ -21,6 +21,7 @@
     - [Misc](#misc)
         - [Render PDF file from HTML (file/URL)](#render-pdf-file-from-html-fileurl)
         - [Sqlite browser](#sqlite-browser)
+    - [Run tor proxy](#run-tor-proxy)
 
 <!-- /TOC -->
 # Docker
@@ -135,3 +136,12 @@ create database via `docker exec -i -t <container_id> su`, then`# mysq -p`, then
 
 
 Create vpn server via docker, image: `kylemanna/openvpn` details in: [./vpn.md](./vpn.md)
+
+
+### Run tor proxy
+socks5 - 9050
+http - 8118
+
+```
+docker run --name torproxy -p 8118:8118 -p 9050:9050 -d dperson/torproxy
+```
