@@ -46,7 +46,8 @@ Connect to running docker
 
 ```
 docker run -d -p 27017:27017 --name mongodb mongo
-docker run -d --name mongo -p 27017:27017 --restart=always -v $HOME/Documents/docker_volumes/mongo:/data/db  -d mvertes/alpine-mongo
+docker run -d --name mongo -p 27017:27017 --restart=always -v $HOME/Documents/docker_volumes/mongo:/data/db -d mvertes/alpine-mongo
+docker run -d --name mongo -p 27017:27017 --restart=always -v $HOME/Documents/docker_volumes/mongo:/data/db -d arm64v8/mongo
 ```
 
 ### Redis
