@@ -18,7 +18,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Press a Key Twice, right_command - Rule - Karabiner-Elements",
+                        "description": "Press right_command to switch back to the previous opened app",
                         "manipulators": [
                             {
                                 "type": "basic",
