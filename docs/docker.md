@@ -21,6 +21,7 @@
     - [Misc](#misc)
         - [Render PDF file from HTML (file/URL)](#render-pdf-file-from-html-fileurl)
         - [Sqlite browser](#sqlite-browser)
+        - [Ollama UI](#ollama-ui)
     - [Run tor proxy](#run-tor-proxy)
 
 <!-- /TOC -->
@@ -126,6 +127,11 @@ docker run -v /path/to/folder/with/html/document/:/root/ mrhadenough/wkhtmltopdf
 docker run -p 127.0.0.1:2015:2015 -v /root/myapp/db/local.sqlite3:/db --name sqlite_gui -d acttaiwan/phpliteadmin
 ```
 
+### Ollama UI
+
+```
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+```
 
 ```
 docker run -u zap -p 8080:8080 -i owasp/zap2docker-stable zap-x.sh -daemon -port 8080
