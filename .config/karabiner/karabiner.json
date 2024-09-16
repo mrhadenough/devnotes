@@ -18,7 +18,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Press right_command to switch back to the previous opened app",
+                        "description": "Press right_command to switch back to the previously opened app",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -170,6 +170,53 @@
                                 "to": [
                                     {
                                         "consumer_key_code": "vk_consumer_dnd"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "left command -> en",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_command"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "select_input_source": {
+                                            "language": "en"
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Right Option -> uk",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_option"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_option"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.keylayout.Ukrainian-PC",
+                                            "language": "uk"
+                                        }
                                     }
                                 ],
                                 "type": "basic"
