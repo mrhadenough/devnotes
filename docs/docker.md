@@ -16,8 +16,10 @@
         - [Email sundbox](#email-sundbox)
         - [Real email server](#real-email-server)
     - [Nginx](#nginx)
-        - [Serve files](#serve-files)
+        - [Serve files](#serve-files-nginx)
         - [Letsencrypt SSL certificate](#letsencrypt-ssl-certificate)
+    - [Caddy](#caddy)
+        - [Serve files](#serve-files-caddy)
     - [Misc](#misc)
         - [Render PDF file from HTML (file/URL)](#render-pdf-file-from-html-fileurl)
         - [Sqlite browser](#sqlite-browser)
@@ -113,6 +115,14 @@ docker run --rm --name nginx-files -v $(pwd):/usr/share/nginx/html:ro -p 8000:80
 ### Letsencrypt SSL certificate
 ```
 docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" certbot/certbot certonly
+```
+
+## Caddy
+
+### Serve files
+
+```
+docker run --name file-server --rm -it -v $(pwd):/usr/share/caddy -p 8080:80 caddy caddy file-server --browse --root /usr/share/caddy
 ```
 
 ## Misc
