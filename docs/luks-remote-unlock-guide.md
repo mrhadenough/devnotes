@@ -338,6 +338,14 @@ ssh luks-unlock
 - NIC driver missing from initramfs — add it to `/etc/initramfs-tools/modules`
 - DNS issue — add `FALLBACK_DNS_SERVERS="1.1.1.1 8.8.8.8"` to tailscale initramfs config
 
+### Dropbear starts but node never appears / unlock "hangs" (e.g. after power outage)
+
+Most likely the auth key has **silently expired** (90-day max). Dropbear and tailscaled both start, but tailscale can't authenticate, so the node never joins the tailnet — from the client it looks like a hang. This happened in July 2026 after a power outage: the key had expired a month earlier and nothing surfaced it until remote unlock was actually needed.
+
+Fix: generate a new auth key, update `/etc/tailscale/initramfs/config`, and **rebuild the initramfs** (the key is baked into the initrd — editing the config alone does nothing).
+
+Also make sure `tailscale-initramfs` is ≥ 0.7 — v0.7 fixes an orphaned-process bug when the network is unavailable at boot (common after power outages when the router is still coming up).
+
 ### Node appears in admin but SSH hangs
 
 - Dropbear started before network was ready — ensure `ip=dhcp` and `DEVICE=` are set
@@ -386,6 +394,14 @@ Known issue with tailscale-initramfs. The `--state=mem:` and `TAILSCALE_LOGOUT=1
 3. Rebuild: `sudo update-initramfs -u -k all`
 4. Set a reminder for the next rotation
 
+### After upgrading the tailscale package
+
+The initramfs contains a **copy** of the tailscale binary from the last rebuild. After `apt upgrade` bumps tailscale, rebuild so the initramfs isn't running a stale version:
+
+```bash
+sudo update-initramfs -u -k all
+```
+
 ### After kernel update
 
 Initramfs is usually rebuilt automatically. Verify:
@@ -426,6 +442,90 @@ lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "tailscale|dropbear"
 - Use ACL tags (`tag:initramfs`) to ensure the initramfs node can only accept incoming connections and cannot reach other devices on your tailnet.
 - Use SSH key authentication only (`-s` flag in dropbear) — never password auth.
 - The `-c cryptroot-unlock` flag in dropbear restricts the SSH session to only the unlock command.
+
+---
+
+## Appendix: SSH Reliability Under Load (Docker Resource Limits)
+
+Related problem on the same server: SSH sessions froze when Docker containers (Plex, Jellyfin, qBittorrent, \*arr) were busy. Documented here after fixing it in July 2026.
+
+### Why the old approach didn't work
+
+A `CPUQuota=300%` override on `docker.service` **does not limit containers**. With Docker's systemd cgroup driver, containers run in their own scopes (`docker-<id>.scope`) *outside* `docker.service`'s cgroup — the quota only throttled the Docker daemon itself. Also, pressure-stall data (`/proc/pressure/io`) showed the freezes were as much **disk IO** contention as CPU — a CPU quota can't fix that.
+
+### The fix: cgroup weights instead of hard caps
+
+Weights only bite under contention — containers get full speed when no one is logged in, but interactive sessions win when they compete. Three pieces:
+
+**1. A slice for all containers** — `/etc/systemd/system/docker-limited.slice`:
+
+```ini
+[Unit]
+Description=Slice for all Docker containers
+Before=slices.target
+
+[Slice]
+CPUWeight=50
+IOWeight=50
+```
+
+Point Docker at it in `/etc/docker/daemon.json`:
+
+```json
+{
+    "cgroup-parent": "docker-limited.slice"
+}
+```
+
+**2. High priority for interactive sessions** — `/etc/systemd/system/user.slice.d/50-interactive.conf`:
+
+```ini
+[Slice]
+CPUWeight=400
+IOWeight=400
+```
+
+SSH shells run in `user.slice` (via pam_systemd), **not** in `ssh.service` — boosting `ssh.service` would do nothing for your shell.
+
+**3. The `bfq` IO scheduler** — `IOWeight=` is a no-op under the default `mq-deadline`. Load bfq and select it:
+
+```bash
+echo bfq > /etc/modules-load.d/bfq.conf
+# /etc/udev/rules.d/60-ioscheduler.rules:
+# ACTION=="add|change", KERNEL=="sda", ATTR{queue/scheduler}="bfq"
+```
+
+Apply everything (restarts all containers):
+
+```bash
+sudo systemctl daemon-reload
+sudo modprobe bfq && echo bfq | sudo tee /sys/block/sda/queue/scheduler
+sudo systemctl restart docker
+```
+
+Resulting root-level split: `user.slice` weight 400 vs `system.slice` 100 vs `docker.slice` 100 — an interactive session is guaranteed ~2/3 of CPU/IO under full contention.
+
+### Verification
+
+```bash
+# Scheduler active
+cat /sys/block/sda/queue/scheduler          # → none mq-deadline [bfq]
+
+# Containers in the slice
+cat /proc/$(docker inspect -f '{{.State.Pid}}' plex)/cgroup
+# → 0::/docker.slice/docker-limited.slice/docker-<id>.scope
+
+# Weights (bfq reads io.bfq.weight, not io.weight)
+cat /sys/fs/cgroup/user.slice/{cpu.weight,io.bfq.weight}
+```
+
+### Gotchas
+
+- **Slice name nesting**: systemd nests slices by dash — `docker-limited.slice` lives *under* `docker.slice` (`/sys/fs/cgroup/docker.slice/docker-limited.slice/`), not under `system.slice`.
+- **`docker build` escapes the slice**: BuildKit ignores `cgroup-parent` semantics and creates a raw sibling cgroup (`system.slice/docker-limited.slice:docker:<id>`) at default weight 100. Harmless: the top-level `user.slice`=400 boost still outranks builds, so SSH stays responsive.
+- **Boot-ordering trap**: if systemd applies `IOWeight=` before the bfq module is loaded, `io.bfq.weight` stays at 100 (only generic `io.weight` gets set) and bfq ignores the weight. The `modules-load.d` entry fixes future boots; for the current boot run:
+  `sudo systemctl set-property --runtime user.slice IOWeight=400`
+  and verify with `cat /sys/fs/cgroup/user.slice/io.bfq.weight`.
 
 ---
 
